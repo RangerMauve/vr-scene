@@ -1,0 +1,25 @@
+{
+  "name": "vr-scene",
+  "version": "1.0.0",
+  "description": "A simple app for building up VR scenes in the browser",
+  "main": "aframe.min.js",
+  "scripts": {
+    "build": "browserify dat.js > dat.bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RangerMauve/vr-scene.git"
+  },
+  "author": "rangermauve",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RangerMauve/vr-scene/issues"
+  },
+  "homepage": "https://github.com/RangerMauve/vr-scene#readme",
+  "dependencies": {
+    "browserify": "^16.5.0",
+    "dat-peers": "^2.0.0",
+    "dat-sdk": "^0.3.4"
+  }
+}

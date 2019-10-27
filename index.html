@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Your Own Cyberspace</title>
+<script src="aframe.min.js"></script>
+<script src="models/list.js"></script>
+<script src="utils.js"></script>
+<script src="components.js"></script>
+<script src="dat.bundle.js"></script>
+<style>
+  @import url('style.css');
+</style>
+<a-scene scene-loader>
+  <a-assets>
+  </a-assets>
+
+  <a-entity
+  wasd-controls
+  camera
+  look-controls="pointerLockEnabled: false"
+  position="0 1.6 0">
+    <a-entity cursor="rayOrigin: mouse;" raycaster="objects: .interactive"></a-entity>
+    <a-entity laser-controls raycaster="objects: .interactive"></a-entity>
+
+    <a-entity position="0 0 -2" current-model></a-entity>
+      <ui-place position="0 -0.5 -2"></ui-place>
+      <ui-next position="1 0 -2"></ui-next>
+      <ui-prev position="-1 0 -2"></ui-prev>
+  </a-entity>
+
+  <!-- <a-sphere position="0 1.25 -5" radius="1.5" color="purple"></a-sphere> -->
+  <a-plane rotation="-90 0 0" width="16" height="16" color="#408000"></a-plane>
+
+  <a-sky color="#99ccff"></a-sky>
+</a-scene>
