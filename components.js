@@ -113,6 +113,8 @@ AFRAME.registerComponent('current-model', {
 
 AFRAME.registerComponent('placed-model', {
   init () {
+    this.el.setAttribute('grabbable', '')
+    this.el.setAttribute('stretchable', '')
     this.el.setAttribute('class', 'interactive')
     console.log('placed new model', this)
     this.el.addEventListener('click', () => {
@@ -121,6 +123,8 @@ AFRAME.registerComponent('placed-model', {
       this.el.destroy()
       window.saveScene()
     })
+    this.el.addEventListener('drag-end', window.saveScene)
+    this.el.addEventListener('stretch-end', window.saveScene)
   }
 })
 
