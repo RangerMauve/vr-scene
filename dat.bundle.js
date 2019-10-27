@@ -115,7 +115,9 @@ async function saveCurrentScene () {
 async function loadScene (url) {
   console.log('Loading scene', url)
 
-  const archive = await DatArchive.load(url)
+  const archive = await DatArchive.load(url, {
+    persist: true
+  })
 
   // Load JSON file from archive
   const rawScene = await archive.readFile(SCENE_FILE, 'utf8')
@@ -169,7 +171,9 @@ async function promptScene (current) {
   // Ask for number of the archive to load
   const loaded = []
   for (let url of current) {
-    const archive = await DatArchive.load(url)
+    const archive = await DatArchive.load(url, {
+      persist: true
+    })
     const { title } = await archive.getInfo()
     loaded.push(title)
   }
