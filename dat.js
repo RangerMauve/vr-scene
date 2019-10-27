@@ -188,17 +188,20 @@ ${loaded.map((title, index) => `${index}: ${title}`)}
 }
 
 async function chooseScene () {
+  console.log('Choosing scene')
   // List known archives in localStorage
   const current = getSavedScenes()
   let chosen = null
 
   if (!current.length) {
     // If there are none, create a new one
+    console.log('creating scene')
     chosen = await createScene()
   } else if (current.length === 1) {
     // If there is only one, skip asking
     chosen = current[0]
   } else {
+    console.log('prompting from list')
     chosen = await promptScene()
   }
 
@@ -210,6 +213,8 @@ function detectScene () {
   // Check if there is a Dat URL in the search params
   const url = new URL(window.location.href)
   const scene = url.searchParams.get(SCENE_SEARCH_KEY)
+
+  console.log('detected scene')
 
   if (scene) {
     // If there is, load it
